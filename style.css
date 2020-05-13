@@ -80,6 +80,11 @@
     font-size: 16px;
 }
 
+.bigtext {
+    color: white;
+    font-size: 20px;
+}
+
 #timecount {
     color: red;
 }

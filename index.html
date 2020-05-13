@@ -14,20 +14,22 @@
             <input type="number" id="guessNumber">
             <button id="guessButton" onclick="guess()">SUBMIT!</button>
         </div>
-        <button class="mx-auto line" id="newgame"  onclick="newgame()">NEXT GAME</button>
-        <button class="mx-auto line" id="reset" onclick="reset()">RESET</button>
-        <h3 class="text">Number of guesses remaining: <span id="guesses-remaining"></span></h3>
-        <div>
-            <h3 class="text">Time: <span id="timecount"></span></h3>
+        <div class="mx-auto">
+            <button class="mx-auto line" id="newgame"  onclick="newgame()">NEXT GAME</button>
+            <button class="mx-auto line" id="reset" onclick="reset()">RESET</button>
         </div>
+        <div class="mx-auto">
+            <div class="text d-inline">Number of guesses remaining: <span id="guesses-remaining"></span> | </div>
+            <div class="text d-inline">Time: <span id="timecount"></span></div>
+         </div>
         <div class="history-section text">
             <h3 class="text">History:
                 <span id="history"></span>
             </h3>
         </div>
         
-        <div id="result" class="text"></div>
-        <h1 id="fail" class="text"></h1>
+        <div id="result" class="bigtext text-center"></div>
+        <h1 id="fail" class="bigtext text-center"></h1>
         <div class="text">Best:</div>
         <div id="bestscore" class="d-inline-flex flex-wrap"></div>
         <div class="text">Previous results:</div>
