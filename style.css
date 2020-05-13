@@ -1,0 +1,83 @@
+.result-card {
+    background-color: orange;
+    padding: 10px;
+    margin: 10px;
+}
+
+.plate {
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(63,143,111,1) 100%);
+    max-width: 1000px;
+    padding: 20px;
+    border-radius: 25px;
+}
+
+.line {
+    margin: 10px;
+}
+
+.red {
+    font-size: 18;
+    color: red;
+}
+
+.green {
+    font-size: 18;
+    color: green;
+}
+
+#newgame {
+    background-color: green;
+    border: none;
+    color: white;
+    padding: 10px;
+}
+
+#reset {
+    background-color: orange;
+    border: none;
+    color: white;
+    padding: 10px;
+}   
+
+#guessButton {
+    background-color: brown;
+    border: none;
+    color: white;
+    padding: 10px;
+}
+
+#guessButton:disabled {
+    background-color: rgb(163, 163, 163);
+}
+
+.history-number {
+    background-color: rgb(29, 135, 136);
+    border: none;
+    border-radius: 10px;
+    color: white;
+    padding: 10px;
+    margin: 5px;
+}
+
+.title {
+    text-transform: uppercase;
+    font-weight: bold;
+    color: white;
+    text-shadow: -2px -2px 0 rgb(208, 238, 17), 2px 2px 0 rgb(17, 205, 238);
+    /* filter: drop-shadow(0px 0px 12px rgb(189, 68, 68)); */
+    letter-spacing: 3px;
+}
+
+.text {
+    color: white;
+    font-size: 16px;
+}
+
+#timecount {
+    color: red;
+}
+
+.history-section {
+    min-height: 60px;
+}
