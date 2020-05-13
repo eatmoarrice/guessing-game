@@ -89,14 +89,15 @@ function newgame() {
 
 function displayBest(){
     bestmessage.innerHTML = "";
-    let scorecount = [];
+    let scorecount = []; //number of guesses left
     for (let i = 0; i < score.length; i++) {
         if (score[i].Result == "correct") {
             scorecount[i] = 5 - score[i].Guesses;
         }
+        else {scorecount[i] = -1;}
     }
-    console.log(Math.max(...scorecount))
     for (i = 0; i < score.length; i++) {
+        console.log("remain guesses:", scorecount[i], "max of them:",  Math.max(...scorecount))
         if (scorecount[i] == Math.max(...scorecount)) {
             bestmessage.innerHTML += `<div class="best-card">
                                             <p>Number: <span class="scoretext">${score[i].Number}</span></p>
@@ -154,6 +155,8 @@ function roundResult(correct) {
 }
 
 function reset() {
+    document.getElementById("score").innerHTML = "";
+    bestmessage.innerHTML = "";
     newgame();
     score = [];
 }
