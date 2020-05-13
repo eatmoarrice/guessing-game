@@ -25,11 +25,13 @@
 .red {
     font-size: 18;
     color: red;
+    font-weight: 500;
 }
 
 .green {
     font-size: 18;
-    color: green;
+    color: rgb(76, 184, 76);
+    font-weight: 500;
 }
 
 #newgame {
@@ -90,5 +92,13 @@
 }
 
 .history-section {
-    min-height: 60px;
+    min-height: 40px;
+}
+
+.smallbox {
+    width: 150px;
+}
+
+p {
+    margin-bottom: 5px;
 }

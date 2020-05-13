@@ -17,6 +17,7 @@ let finish = false;
 
 // first start
 let computerNumber = randomNumber(1,99);
+console.log("Correct number is:", computerNumber);
 let guessButton = document.getElementById("guessButton");
 let remaining = document.getElementById("guesses-remaining");
 remaining.innerHTML = 5;
@@ -31,7 +32,6 @@ timecounting()// fire the timecounting function!!
 
 
 function guess() {
-    console.log(computerNumber);
     let repeat = false;
     let userNumber = document.getElementById("guessNumber").value;
     if (userNumber != "" && userNumber>0 && userNumber <=100){
@@ -43,7 +43,7 @@ function guess() {
             resultmessage.innerHTML = "Too low!";
         }
         else {
-            resultmessage.innerHTML = "You are correct!";
+            resultmessage.innerHTML = `You are <span class="green">correct!</span>`;
             count += 1;
             win();
         }
@@ -79,6 +79,7 @@ function newgame() {
     historymessage.innerHTML = "";
     resultmessage.innerHTML = "";
     computerNumber = randomNumber(1,99);
+    console.log("Correct number is:", computerNumber);
     time = 0;
     history = [];
     clearInterval(myTime);
@@ -97,7 +98,6 @@ function displayBest(){
         else {scorecount[i] = -1;}
     }
     for (i = 0; i < score.length; i++) {
-        console.log("remain guesses:", scorecount[i], "max of them:",  Math.max(...scorecount))
         if (scorecount[i] == Math.max(...scorecount)) {
             bestmessage.innerHTML += `<div class="best-card">
                                             <p>Number: <span class="scoretext">${score[i].Number}</span></p>
@@ -115,7 +115,7 @@ function fail() {
     clearInterval(myTime);
     roundResult("wrong");
     displayScore("wrong");
-    failmessage.innerHTML = `You failed! The number was ${computerNumber}`;
+    failmessage.innerHTML = `You <span class="red">failed</span>! The number was ${computerNumber}.`;
 }
 
 function win() {
