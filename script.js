@@ -23,6 +23,7 @@ remaining.innerHTML = 5;
 let resultmessage = document.getElementById("result");
 let failmessage = document.getElementById("fail");
 let historymessage = document.getElementById("history");
+let bestmessage = document.getElementById("bestscore");
 document.getElementById('timecount').innerHTML = maxTime;
 timecounting()// fire the timecounting function!!
 
@@ -30,6 +31,7 @@ timecounting()// fire the timecounting function!!
 
 
 function guess() {
+    console.log(computerNumber);
     let repeat = false;
     let userNumber = document.getElementById("guessNumber").value;
     if (userNumber != "" && userNumber>0 && userNumber <=100){
@@ -42,6 +44,7 @@ function guess() {
         }
         else {
             resultmessage.innerHTML = "You are correct!";
+            count += 1;
             win();
         }
 
@@ -57,7 +60,7 @@ function guess() {
             count += 1;
             history.push(userNumber);
             remaining.innerHTML -=1;
-            if (count == 5) {fail();}
+            if (count == 5 && finish == false) {fail();}
         }
     }
     else {alert("Please choose a valid number between 1 and 100.");}
@@ -80,12 +83,29 @@ function newgame() {
     history = [];
     clearInterval(myTime);
     timecounting();
-    finish == false;
+    finish = false;
     document.getElementById('timecount').innerHTML = maxTime;   
 }
 
 function displayBest(){
-    
+    bestmessage.innerHTML = "";
+    let scorecount = [];
+    for (let i = 0; i < score.length; i++) {
+        if (score[i].Result == "correct") {
+            scorecount[i] = 5 - score[i].Guesses;
+        }
+    }
+    console.log(Math.max(...scorecount))
+    for (i = 0; i < score.length; i++) {
+        if (scorecount[i] == Math.max(...scorecount)) {
+            bestmessage.innerHTML += `<div class="best-card">
+                                            <p>Number: <span class="scoretext">${score[i].Number}</span></p>
+                                            <p>Result: <span class="green">correct</span></p>
+                                            <p>Guesses: <span class="scoretext">${score[i].Guesses}</span></p>
+                                            <p>Time taken   : <span class="scoretext">${score[i].Time}s</span></p>
+                                        </div>`
+        };
+    }
 }
 
 function fail() {
@@ -98,11 +118,13 @@ function fail() {
 }
 
 function win() {
+    
     guessButton.disabled = true;
     finish = true;
     clearInterval(myTime);
     roundResult("correct");
     displayScore("correct");
+    displayBest();
 }
 
 function displayScore(correct) {
@@ -123,12 +145,12 @@ function displayScore(correct) {
 }
 
 function roundResult(correct) {
-    score.push = {
+    score.push ({
         Number: computerNumber,
         Result: correct,
         Guesses: count,
         Time: time
-    }
+    })
 }
 
 function reset() {

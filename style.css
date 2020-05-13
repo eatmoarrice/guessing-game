@@ -4,6 +4,12 @@
     margin: 10px;
 }
 
+.best-card {
+    background-color: rgb(241, 252, 139);
+    padding: 10px;
+    margin: 10px;
+}
+
 .plate {
     background: rgb(2,0,36);
     background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(63,143,111,1) 100%);
